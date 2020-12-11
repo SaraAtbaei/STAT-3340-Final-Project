@@ -1,6 +1,6 @@
 ```{r}
 library(readr)
-Real_estate <- read_csv("~/Desktop/Real estate.csv")
+real.estate <- read_csv("~/Desktop/Real estate.csv")
 ```
 ## (Data Description) pairs plot
 ```{r}
