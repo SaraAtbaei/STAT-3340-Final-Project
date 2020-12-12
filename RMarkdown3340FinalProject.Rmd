@@ -1,13 +1,14 @@
 ```{r}
 library(readr)
-real.estate <- read_csv("~/Desktop/Real estate.csv")
+Real_estate <- read_csv("~/Desktop/Real estate.csv")
 ```
 ## (Data Description) pairs plot
 ```{r}
-pairs(real.estate[,1:6], pch = 414)
+pairs(Real_estate[,1:6], pch = 414)
 install.packages("olsrr")
 library(olsrr)
-plot(real.estate[, -1])
+plot(Real_estate[, -1])
+model=lm(Y.house.price.of.unit.area~X1.transaction.date+X2.house.age+X3.distance.to.the.nearest.MRT.station+X5.latitude+X6.longitude, data=Real_estate)
 ```
 
 ##(Data Description) Deleted Studentized Residuals vs Fitted Values Plot
@@ -39,6 +40,7 @@ Citation:
 
 ### Methods stepwise regression
 ```{r}
+library("leaps")
 data=read_csv("~/Desktop/Real estate.csv")
 data=as.matrix(data[,-1])
 leaps(x=data[,-1],y=data[,1],method="adjr2")
