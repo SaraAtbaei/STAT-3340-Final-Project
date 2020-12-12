@@ -1,13 +1,13 @@
 ```{r}
 library(readr)
-real.estate <- read_csv("~/Desktop/Real estate.csv")
+Real_estate <- read_csv("~/Desktop/Real estate.csv")
 ```
 ## (Data Description) pairs plot
 ```{r}
-pairs(real.estate[,1:6], pch = 414)
+pairs(Real_estate[,1:6], pch = 414)
 install.packages("olsrr")
 library(olsrr)
-plot(real.estate[, -1])
+plot(Real_estate[, -1])
 ```
 
 ##(Data Description) Deleted Studentized Residuals vs Fitted Values Plot
