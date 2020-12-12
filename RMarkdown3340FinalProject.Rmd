@@ -1,17 +1,21 @@
 ```{r}
 library(readr)
-real.estate <- read_csv("~/Desktop/Real estate.csv")
+Real_estate <- read_csv("~/Desktop/Real estate.csv")
 ```
 ## (Data Description) pairs plot
 ```{r}
-pairs(real.estate[,1:6], pch = 414)
+pairs(Real_estate[,1:6], pch = 414)
 install.packages("olsrr")
 library(olsrr)
-plot(real.estate[, -1])
+plot(Real_estate[, -1])
 ```
 
 ##(Data Description) Deleted Studentized Residuals vs Fitted Values Plot
 ```{r}
+data=read_csv("~/Desktop/Real estate.csv")
+data=as.matrix(data[,-1])
+y=data[,7]; x1=data[,1];x2=data[,2];x3=data[,3];x4=data[,4];x5=data[,5];x6=data[,6]
+model=lm(y~x1+x2+x4+x5+x6)
 ols_plot_resid_stud_fit(model)
 ```
 graph for our outliers
@@ -39,6 +43,7 @@ Citation:
 
 ### Methods stepwise regression
 ```{r}
+library("leaps")
 data=read_csv("~/Desktop/Real estate.csv")
 data=as.matrix(data[,-1])
 leaps(x=data[,-1],y=data[,1],method="adjr2")
